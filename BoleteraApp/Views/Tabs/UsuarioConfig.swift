@@ -31,25 +31,10 @@ struct UsuarioConfig: View {
         ZStack {
             LinearGradient(colors: [Color.green, Color.blue], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
-
-            ScrollView {
-                VStack(spacing: 20) {
-                    // Avatar placeholder
-                    ZStack {
-                        Circle()
-                            .fill(Color.white.opacity(0.3))
-                            .frame(width: 90, height: 90)
-                        Text(String(usernameKey.prefix(1)).uppercased())
-                            .font(.system(size: 40, weight: .bold))
-                            .foregroundColor(.white)
-                    }
-                    .padding(.top, 10)
-
-                    Text("Mi cuenta")
-                        .font(.title2).bold()
-                        .foregroundColor(.white)
-
-                    VStack(spacing: 16) {
+                    VStack(spacing: 20) {
+                        Text("Configuracion de la cuenta")
+                            .font(.title2).bold()
+                            .foregroundColor(.black)
                         TextField("Nombre", text: $nombre)
                             .textFieldStyle(.roundedBorder)
 
@@ -99,10 +84,7 @@ struct UsuarioConfig: View {
                     .background(Color.white)
                     .cornerRadius(20)
                     .shadow(radius: 8)
-                    .padding(.horizontal)
-                }
-                .padding(.bottom, 30)
-            }
+                    .padding()
         }
         .onAppear {
             cargarDatos()
@@ -128,7 +110,6 @@ struct UsuarioConfig: View {
             return
         }
 
-        // Validar contraseña si se quiere cambiar
         if !password.isEmpty || !secondPassword.isEmpty {
             guard password == secondPassword else {
                 errorMessage = "Las contraseñas no coinciden."
@@ -142,7 +123,6 @@ struct UsuarioConfig: View {
         u.primerApellido = primerApellido
         u.segundoApellido = segundoApellido
 
-        // Si cambió el username, actualizar AppStorage también
         if username != u.username {
             u.username = username
             usernameKey = username
@@ -151,7 +131,6 @@ struct UsuarioConfig: View {
         do {
             try context.save()
             showSuccess = true
-            // Limpiar campos de contraseña tras guardar
             password = ""
             secondPassword = ""
         } catch {
@@ -162,5 +141,5 @@ struct UsuarioConfig: View {
 }
 
 #Preview {
-    UsuarioAccount()
+    UsuarioConfig()
 }

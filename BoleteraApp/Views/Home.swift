@@ -19,7 +19,7 @@ struct Home: View {
             Ventas().tabItem {
                 Label("Ventas", systemImage: "list.bullet")
             }
-            UsuarioAccount.tabItem {
+            UsuarioConfig().tabItem {
                 Label("Cuenta", systemImage: "person.circle")
             }
         }
