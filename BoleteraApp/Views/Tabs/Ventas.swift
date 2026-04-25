@@ -26,9 +26,9 @@ struct Ventas: View {
                             Text(venta.fechaVenta, style: .date)
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                        }
+                        }.listRowBackground(Color.white.opacity(0.2))
                     }.onDelete(perform: eliminarVenta)
-                }.background(Color.black)
+                }.scrollContentBackground(.hidden)
             }.padding()
         }
     }

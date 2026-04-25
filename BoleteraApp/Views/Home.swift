@@ -22,7 +22,8 @@ struct Home: View {
             UsuarioConfig().tabItem {
                 Label("Cuenta", systemImage: "person.circle")
             }
-        }
+        }.tint(.black)
+        
     }
 }
 
