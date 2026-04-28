@@ -19,9 +19,9 @@ struct Home: View {
             Ventas().tabItem {
                 Label("Ventas", systemImage: "list.bullet")
             }
-            /*UsuarioAccount.tabItem {
-                Label("Cuenta", systemImage: "")
-            }*/
+            UsuarioAccount.tabItem {
+                Label("Cuenta", systemImage: "person.circle")
+            }
         }
     }
 }
